@@ -23,4 +23,6 @@ This project implements a machine learning model to classify breast cancer tumor
 3. Run `tumor_detection_visualize.py` for visualization.
 4. Run `tumor_detection_final.py` for final evaluation.
 
+## License
+[MIT License]
 

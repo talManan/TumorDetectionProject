@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.preprocessing import StandardScaler
 
-# Load dataset and split
+# Load the dataset and split
 data = load_breast_cancer()
 X = pd.DataFrame(data.data, columns=data.feature_names)
 y = data.target
@@ -25,7 +25,7 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Final Model Accuracy: {accuracy:.2f}")
 print("Final Classification Report:\n", classification_report(y_test, y_pred))
 
-# Save results to a text file
+# Save 
 with open('results.txt', 'w') as f:
     f.write(f"Accuracy: {accuracy:.2f}\n")
     f.write("Classification Report:\n")

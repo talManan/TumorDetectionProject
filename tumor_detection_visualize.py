@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 
-# Load and prepare data
+# Load and prepare the data
 data = load_breast_cancer()
 X = pd.DataFrame(data.data, columns=data.feature_names)
 y = data.target
@@ -16,11 +16,11 @@ scaler = StandardScaler()
 X_2d_scaled = scaler.fit_transform(X_2d)  # Scale the data here
 X_train, X_test, y_train, y_test = train_test_split(X_2d_scaled, y, test_size=0.2, random_state=42)
 
-# Train Logistic Regression
+# Train the Logistic Regression
 model = LogisticRegression(max_iter=2000, solver='saga')
 model.fit(X_train, y_train)
 
-# Predict
+# For prediction 
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Logistic Regression Accuracy (2D): {accuracy:.2f}")
@@ -33,7 +33,7 @@ xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
 Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
 Z = Z.reshape(xx.shape)
 
-# Plot
+# Plotting the graph
 plt.figure(figsize=(10, 8))
 plt.contourf(xx, yy, Z, cmap=plt.cm.RdYlBu, alpha=0.8)
 plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap=plt.cm.RdYlBu, edgecolor='k')
@@ -43,7 +43,7 @@ plt.title('Decision Boundary (Logistic Regression)')
 plt.savefig('decision_boundary.png')
 plt.show()
 
-# Optional: Hyperparameter tuning for Random Forest
+# Random Forest
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 param_grid = {'n_estimators': [100, 200], 'max_depth': [10, 20, None]}
